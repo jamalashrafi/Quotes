@@ -10,11 +10,11 @@ const quoteReducer = (state = INITIAL_STATE, action) => {
         case ADD_QUOTE:
             return { ...state, quotes: [...state.quotes, action.payload] }
         case GET_QUOTES:
-            return { ...state } //Sending only the required part of the state not the compelete state.
+            return { ...state }
         case ADD_COMMENT:
             return { ...state, comments: [...state.comments, action.payload] }
         case GET_COMMENTS:
-            return { comments: state.comments }
+            return { ...state }
         default:
             return state
     }
