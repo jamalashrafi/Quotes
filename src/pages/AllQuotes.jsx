@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getQuoteList } from '../actions/quoteAction';
+import { NavLink } from 'react-router-dom';
 
 const AllQuotes = () => {
     // debugger
@@ -17,7 +18,18 @@ const AllQuotes = () => {
     return (
         <div>
             {
-                quoteList.map((quote, index) => <p key={index}>{quote.quote}</p>)
+                quoteList.map((quote, index) => (
+                    <div key={index}>
+                        <span >{quote.quote}</span>
+                        <NavLink to={{
+                            pathname: `/all-quotes/${quote.quote}`,
+                            aboutProps: {
+                                userName: quote.userName,
+                                quoteText: quote.quote
+                            }
+                        }}>View FullScreen</NavLink>
+                    </div>)
+                )
             }
         </div>
     )

@@ -1,7 +1,8 @@
-import { Switch, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Welcome from './pages/Welcome';
 import AddQuote from './pages/AddQuote';
 import AllQuotes from './pages/AllQuotes';
+import SpecificQuote from './pages/SpecificQuote';
 function App() {
   return (
     <div className="App">
@@ -9,6 +10,7 @@ function App() {
       <Route path='/' component={Welcome} />
       <Route path='/add-a-quote' exact component={AddQuote} />
       <Route path='/all-quotes' exact component={AllQuotes} />
+      <Route path='/all-quotes/:quote' component={SpecificQuote} />
 
     </div>
   );
