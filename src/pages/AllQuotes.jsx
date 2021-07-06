@@ -4,15 +4,15 @@ import { getQuoteList } from '../actions/quoteAction';
 import { NavLink } from 'react-router-dom';
 
 const AllQuotes = () => {
-    // debugger
+
     const quoteList = useSelector(state => state.quoteReducer.quotes);
-    console.log('quoteList', quoteList)
+
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getQuoteList());
     })
-    console.log('Length', quoteList.length)
+
     if (quoteList.length === 0)
         return 'Loading...'
     return (

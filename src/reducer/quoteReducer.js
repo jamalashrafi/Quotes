@@ -1,6 +1,7 @@
-import { ADD_QUOTE, GET_QUOTES } from '../constants'
+import { ADD_QUOTE, GET_QUOTES, ADD_COMMENT, GET_COMMENTS } from '../constants'
 const INITIAL_STATE = {
-    quotes: []
+    quotes: [],
+    comments: []
 }
 
 
@@ -9,7 +10,11 @@ const quoteReducer = (state = INITIAL_STATE, action) => {
         case ADD_QUOTE:
             return { ...state, quotes: [...state.quotes, action.payload] }
         case GET_QUOTES:
-            return { quotes: state.quotes } //Sending only the required part of the state not the compelete state.
+            return { ...state } //Sending only the required part of the state not the compelete state.
+        case ADD_COMMENT:
+            return { ...state, comments: [...state.comments, action.payload] }
+        case GET_COMMENTS:
+            return { comments: state.comments }
         default:
             return state
     }
